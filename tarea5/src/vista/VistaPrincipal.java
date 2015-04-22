@@ -13,11 +13,11 @@ import java.awt.Font;
 public class VistaPrincipal extends JPanel {
 	
 	
-	private JLabel fotoUser, lblUsuario, lblContrasea;
+	private JLabel fotoUser, lblUsuario, lblContrasena;
 	private JButton btnJuegos, btnPerfil, btnLogin, btnRegistrarse;
 	private JComboBox comboBox;
 	private JPasswordField passwordField;
-	private JLabel lblNewLabel;
+	
 	
 	/**
 	 * Create the panel.
@@ -51,10 +51,10 @@ public class VistaPrincipal extends JPanel {
 		comboBox.setBounds(48, 255, 150, 23);
 		add(comboBox);
 		
-		lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setFont(new Font("Segoe Print", Font.BOLD, 18));
-		lblContrasea.setBounds(48, 314, 111, 23);
-		add(lblContrasea);
+		lblContrasena = new JLabel("Contraseña");
+		lblContrasena.setFont(new Font("Segoe Print", Font.BOLD, 18));
+		lblContrasena.setBounds(48, 314, 111, 23);
+		add(lblContrasena);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(48, 348, 150, 20);
@@ -70,10 +70,5 @@ public class VistaPrincipal extends JPanel {
 		btnRegistrarse.setBounds(48, 460, 150, 33);
 		add(btnRegistrarse);
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(null);
-		lblNewLabel.setBounds(0, 0, 460, 550);
-		add(lblNewLabel);
-
 	}
 }

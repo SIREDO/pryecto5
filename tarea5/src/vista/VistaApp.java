@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class VistaApp extends JFrame {
 
@@ -17,6 +18,7 @@ public class VistaApp extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaApp() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaApp.class.getResource("/images/icono.png")));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
