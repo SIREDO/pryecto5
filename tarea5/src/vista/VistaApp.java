@@ -4,7 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
+import java.awt.CardLayout;
 import java.awt.Toolkit;
+
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
 
 public class VistaApp extends JFrame {
 
@@ -12,7 +18,7 @@ public class VistaApp extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu principal, juegos, perfil;
 	private JMenuItem principalItem, juegosItem, perfilItem; 
-	private VistaPrincipal contentPane;
+	private VistaPrincipal vPrincipal;
 
 
 	/**
@@ -36,8 +42,8 @@ public class VistaApp extends JFrame {
 		
 		//Creamos y añadimos al contenedor de la ventana la vista principal
 		
-		contentPane = new VistaPrincipal();
-		setContentPane(contentPane);
+		vPrincipal = new VistaPrincipal();
+		//setContentPane(vPrincipal);
 		
 		//Creamos y añadimos el menu de la ventana
 		
@@ -63,8 +69,11 @@ public class VistaApp extends JFrame {
 		
 				perfilItem = new JMenuItem("Perfil");
 				perfil.add(perfilItem);
+				
+				
+			getContentPane().setLayout(new CardLayout(0,0));	
+			getContentPane().add(vPrincipal,"VistaPrincipal");
 		
 		
 	}
-
 }
