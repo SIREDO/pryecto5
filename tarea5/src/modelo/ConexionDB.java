@@ -15,10 +15,10 @@ public class ConexionDB {
 		private String bbdd;
 		private String user;
 		private String pass;
-		private String url;
+		private String url="jdbc:mysql://";
 		
 		//Conexion
-		private Connection conexion = null;// maneja la conexió
+		private static Connection conexion = null;// maneja la conexió
 		
 		//Instancia unica
 		private static ConexionDB instance = null;
@@ -28,10 +28,9 @@ public class ConexionDB {
 			this.bbdd=BBDD;
 			this.user=USER;
 			this.pass=PASS;
-			this.url="jdbc:mysql://localhost/gamedb";
 		}
 		
-		//Implementar SingleTon
+		//Implementar SingleTon para crear la conexion desde el metodo
 		public static ConexionDB getInstance(String HOST,String BBDD,String USER,String PASS) {
 		      if(instance == null) {
 		         instance = new ConexionDB(HOST,BBDD,USER,PASS);
@@ -44,7 +43,7 @@ public class ConexionDB {
 				//Lo primero es cargar el controlador MySQL el cual automáticamente se registra
 				Class.forName(CONTROLADOR_MYSQL);
 				//Conectarnos a la BBDD
-				conexion = DriverManager.getConnection(this.url,this.user,this.pass);
+				conexion = DriverManager.getConnection(this.url+this.host+"/"+this.bbdd,this.user,this.pass);
 			}
 			catch( SQLException excepcionSql ) 
 			{
@@ -59,8 +58,8 @@ public class ConexionDB {
 			return true;
 		}
 		
-		public Connection getConexion(){
-			return this.conexion;
+		public static Connection getConexion(){
+			return conexion;
 		}
 
 }

@@ -4,19 +4,26 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
+
+import modelo.UsuariosModelo;
+
 import java.awt.Font;
+import java.util.Iterator;
 
 public class VistaPrincipal extends JPanel {
 	
 	//Creamos variables para almacenar los distintos elementos del contenedor principal
 	private JLabel fotoUser, lblUsuario, lblContrasena;
 	private JButton btnJuegos, btnPerfil, btnLogin, btnRegistrarse;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JPasswordField password;
+	private UsuariosModelo users;
 	
 	
 	/**
@@ -56,7 +63,7 @@ public class VistaPrincipal extends JPanel {
 			
 			//creamos y añadimos un combobox al contenedor ligado a la etiqueta usuario
 		
-			comboBox = new JComboBox();
+			comboBox = new JComboBox<String>();
 			comboBox.setBounds(48, 255, 150, 23);
 			add(comboBox);
 			
@@ -85,5 +92,13 @@ public class VistaPrincipal extends JPanel {
 			btnRegistrarse.setBounds(48, 460, 150, 33);
 			add(btnRegistrarse);
 		
+			users = new UsuariosModelo();
+			
+			//recorremos el arraylist en forma de iterator
+			Iterator<String> it =users.getUsuarios().iterator();
+			while(it.hasNext()){
+				//lo añadimos al combobox con un casting a string
+				comboBox.addItem((String)it.next());
+			}
 	}
 }
